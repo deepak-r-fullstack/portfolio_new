@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Design tokens — the ONLY place colors, fonts and shadows are defined.
+   Rules: see DESIGN.md. Tailwind names are mapped in src/index.css (@theme).
+   Light theme is the default; dark applies via [data-theme="dark"] on <html>.
+   ========================================================================== */
+
+:root {
+  /* ---- Colors: light ---- */
+  --canvas: #f2f4f6;
+  --surface: #ffffff;
+  --ink: #17202b;
+  --muted: #556170;
+  --line: #d9dee4;
+  --pending: #8f5a00; /* signature accent: "waiting for approval" */
+  --approved: #1f7a50;
+  --blocked: #b33a28;
+
+  /* Soft tints for status pills (status color at low opacity) */
+  --pending-soft: color-mix(in srgb, var(--pending) 14%, transparent);
+  --approved-soft: color-mix(in srgb, var(--approved) 14%, transparent);
+  --blocked-soft: color-mix(in srgb, var(--blocked) 14%, transparent);
+
+  /* ---- Elevation: only the app window gets a shadow ---- */
+  --shadow-window: 0 24px 48px -16px rgb(23 32 43 / 0.22), 0 2px 6px rgb(23 32 43 / 0.06);
+
+  /* ---- Fonts ---- */
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, monospace;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  /* ---- Colors: dark ---- */
+  --canvas: #10151c;
+  --surface: #18202a;
+  --ink: #e8ecf1;
+  --muted: #9aa6b4;
+  --line: #2a3441;
+  --pending: #f0b23e;
+  --approved: #3dbe84;
+  --blocked: #e5644f;
+
+  --shadow-window: 0 24px 48px -16px rgb(0 0 0 / 0.55), 0 0 0 1px var(--line);
+
+  color-scheme: dark;
+}

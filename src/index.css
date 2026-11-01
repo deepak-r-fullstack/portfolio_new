@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+@import './styles/tokens.css';
+
+/* Dark variant follows our data-theme attribute, not only the OS setting */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* --------------------------------------------------------------------------
+   Map design tokens to Tailwind utility names (bg-canvas, text-ink, ...).
+   Default palette is cleared so off-system colors (bg-blue-500) can't be used.
+   -------------------------------------------------------------------------- */
+@theme inline {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-pending: var(--pending);
+  --color-approved: var(--approved);
+  --color-blocked: var(--blocked);
+  --color-pending-soft: var(--pending-soft);
+  --color-approved-soft: var(--approved-soft);
+  --color-blocked-soft: var(--blocked-soft);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-code: var(--font-code);
+
+  /* Type scale, ratio 1.25 (DESIGN.md §3) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5625rem;
+  --text-2xl: 1.9375rem;
+  --text-3xl: 2.4375rem;
+  --text-display: clamp(2.75rem, 1.6rem + 4.8vw, 4.75rem);
+
+  /* Radius by importance */
+  --radius-window: 16px;
+  --radius-card: 10px;
+
+  --shadow-window: var(--shadow-window);
+
+  --container-page: 70rem; /* 1120px */
+}
+
+/* -------------------------------------------------------------------------- */
+@layer base {
+  html {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: 1.1;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  /* Visible keyboard focus: amber ring (DESIGN.md §7) */
+  :focus-visible {
+    outline: 2px solid var(--pending);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
