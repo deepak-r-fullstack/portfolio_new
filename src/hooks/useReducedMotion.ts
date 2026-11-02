@@ -1,0 +1,17 @@
+import { useEffect, useState } from 'react'
+
+const QUERY = '(prefers-reduced-motion: reduce)'
+
+/** True when the visitor asked their device for less motion (DESIGN.md §5). */
+export const useReducedMotion = () => {
+  const [reduced, setReduced] = useState(() => window.matchMedia(QUERY).matches)
+
+  useEffect(() => {
+    const media = window.matchMedia(QUERY)
+    const onChange = () => setReduced(media.matches)
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
+  return reduced
+}

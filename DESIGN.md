@@ -108,7 +108,7 @@ Motion exists only to **explain**, never to decorate.
 |---|---|
 | One hero load moment (the pending card appears) | Fade-and-slide-up on every section |
 | Scroll-scrubbed motion in sections #1, #2, #3 only | Hover animations on every card |
-| Pinning with **native scroll** (GSAP ScrollTrigger `pin`) | Scrolljacking: taking over the wheel, snapping pages, changing scroll speed |
+| Pinning with **native scroll** (CSS `position: sticky` or GSAP ScrollTrigger `pin`) | Scrolljacking: taking over the wheel, snapping pages, changing scroll speed |
 | Counting numbers in #2 | Parallax backgrounds, cursor followers, particles |
 
 Technical rules:
