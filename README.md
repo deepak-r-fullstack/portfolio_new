@@ -1,32 +1,33 @@
-# React + TypeScript + Vite
+# Deepak R — portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio for **deepak.sritaraksolutions.in**. React + TypeScript + Tailwind CSS + GSAP, built with Vite.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Where things live
+
+| What | Where |
+|---|---|
+| All page text | `src/data/content.ts` |
+| Colors, fonts (light + dark) | `src/styles/tokens.css` |
+| Design rules | `DESIGN.md` |
+| Scroll sections | `src/components/AgentGuardStory.tsx`, `CareerJourney.tsx`, `ArchitectureStack.tsx` |
+
+## Checks (run before pushing)
+
+```bash
+npm run check:contrast   # text readable in both themes
+npm run check:visual     # screenshots: desktop + phone, light + dark, motion + reduced motion
+```
+
+If Playwright's browser isn't installed, run `npx playwright install chromium`,
+or point at your Chrome: `CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" npm run check:visual`.
+
+## Deploy
+
+Every push to `main` builds and publishes to GitHub Pages (`.github/workflows/deploy.yml`).
