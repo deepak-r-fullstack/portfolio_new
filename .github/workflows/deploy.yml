@@ -1,5 +1,5 @@
 # Builds the site and publishes it to GitHub Pages on every push to main.
-# Custom domain comes from public/CNAME (deepak.sritaraksolutions.in).
+# Custom domain comes from public/CNAME (portfolio.sritaraksolutions.in).
 name: Deploy to GitHub Pages
 
 on:

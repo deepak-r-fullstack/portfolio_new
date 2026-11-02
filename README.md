@@ -1,6 +1,6 @@
 # Deepak R — portfolio
 
-Personal portfolio for **deepak.sritaraksolutions.in**. React + TypeScript + Tailwind CSS + GSAP, built with Vite.
+Personal portfolio for **portfolio.sritaraksolutions.in**. React + TypeScript + Tailwind CSS + GSAP, built with Vite.
 
 ## Run locally
 
